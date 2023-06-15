@@ -1,3 +1,3 @@
 print("Dominik jest spoko")
 x = 11
-print(f"x wynosi{x}")
+print("x zwykły to" + x)
