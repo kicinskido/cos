@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: strefakursow-cron
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: strefakursow-pogoda-cron
+            image: ubuntu
+            command:
+            - "/bin/bash"
+            - "-c"
+            - "apt-get update; apt-get install curl -y; curl -s http://wttr.in/Szczecin"
